@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { Routes } from "@angular/router";
+import { Routes, RouterModule } from "@angular/router";
 
 import { PorCapitalComponent } from "./app/pais/pages/por-capital/por-capital.component";
 import { PorPaisComponent } from './app/pais/pages/por-pais/por-pais.component';
@@ -36,10 +36,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-
+    RouterModule.forRoot(routes)
   ],
   exports: [
-
+    RouterModule,
   ]
 })
 
