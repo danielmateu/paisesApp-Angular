@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
 import {Observable, of} from 'rxjs';
 // import {catchError} from 'rxjs/operators';
-import { Country } from '../interfaces/pais.interface';
+import { Country, Region } from '../interfaces/pais.interface';
 import { Capital } from '../interfaces/capital.interface';
 @Injectable({
   providedIn: 'root'
@@ -18,9 +18,7 @@ export class PaisService {
       const url = `${this.apiUrl}/name/${termino}`
 
       return this.http.get<Country[]>(url)
-        // .pipe(
-        //   catchError(err => of(['Hola mundo']))
-        // );
+
     }
 
     buscarCapital(termino: string): Observable<Capital[]> {
@@ -34,6 +32,14 @@ export class PaisService {
 
       return this.http.get<Country>(url)
     }
+
+    buscarRegion(region: string): Observable<Country[]>{
+      const url = `${this.apiUrl}/regionalbloc/${region}`
+
+      return this.http.get<Country[]>(url)
+    }
+
+    // "https://restcountries.com/v3.1/regionalbloc/SAARC"
 
 
 }
