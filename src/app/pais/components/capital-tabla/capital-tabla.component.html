@@ -1,0 +1,28 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Bandera</th>
+      <th>Nombre</th>
+      <th>Población</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- *ngFor -->
+    <tr
+      *ngFor="let item of capital; let i = index"
+    >
+      <td>{{i + 1}} - {{item.region}} </td>
+      <td>
+        <img [src]="item.flags.png" [alt]="item.name" class="small-flag">
+      </td>
+      <td>{{item.capital}}</td>
+      <td>{{item.population | number}}</td>
+      <td>
+        <!-- <a [routerLink]="['/pais', item.cca2]" >Ver...</a> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+

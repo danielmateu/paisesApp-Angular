@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
 import {Observable, of} from 'rxjs';
-import {catchError} from 'rxjs/operators';
+// import {catchError} from 'rxjs/operators';
 import { Country } from '../interfaces/pais.interface';
+import { Capital } from '../interfaces/capital.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +21,12 @@ export class PaisService {
         // .pipe(
         //   catchError(err => of(['Hola mundo']))
         // );
+    }
+
+    buscarCapital(termino: string): Observable<Capital[]> {
+      const url = `${this.apiUrl}/capital/${termino}`
+
+      return this.http.get<Capital[]>(url)
     }
 
 
